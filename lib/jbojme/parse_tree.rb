@@ -7,7 +7,7 @@ module Jbojme
       @v = /[aeiouy]/
       @c = /[bcdfgjklmnprstvxz]/
 
-      tree = text.split(/[\.\s]/).map do |token|
+      tree = text.split(/[\.\s]+/).map do |token|
         case token
         when /^(?:#@v(?:'?#@v)?|#@c#@v(?:'?#@v)?)+$/
           [:cmavo, token]
