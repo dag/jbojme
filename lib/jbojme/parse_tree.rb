@@ -1,5 +1,6 @@
 require 'jbojme/cmavo'
 require 'jbojme/gismu'
+require 'jbojme/lujvo'
 
 module Jbojme
   class ParseTree < Array
@@ -19,6 +20,7 @@ module Jbojme
           Gismu.new(token)
         when /^#@c.*#@v$/
           [:lujvo, token]
+          Lujvo.new(token)
         end
       end
 
