@@ -23,7 +23,7 @@ module Jbojme
         end
       end
 
-      self.merge!(tree)
+      self.replace(tree)
     end
   end
 end
