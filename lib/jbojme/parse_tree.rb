@@ -12,7 +12,8 @@ module Jbojme
       tree = text.split(/[\.\s]+/).map do |token|
         case token
         when /^(?:#@v(?:'?#@v)?|#@c#@v(?:'?#@v)?)+$/
-          Cmavo.new(token)
+          cmavos = token.scan(/.(?:'|#@v)*/).map {|c| Cmavo.new(c) }
+          cmavos.size > 1 ? cmavos : cmavos[0]
         when /#@c$/
           Cmevla.new(token)
         when /^#@c(?:#@c#@v#@c|#@v#@c#@c)#@v$/
