@@ -33,4 +33,22 @@ namespace :list do
     puts list.pretty_inspect.split("\n").map {|line| "    %s" % line }.join("\n")
     puts "end"
   end
+
+  desc "Generate a lujvo list reading standard input for official publication"
+  task :lujvo do
+    require 'pp'
+    list = STDIN.readlines.map do |line|
+      line = line.split(/[:#]/)
+      [
+        line[0],
+        line[1].split("+"),
+        line[2],
+        line[3].to_s.strip
+      ]
+    end
+    puts "module Jbojme"
+    puts "  LUJVO_LIST ="
+    puts list.pretty_inspect.split("\n").map {|line| "    %s" % line }.join("\n")
+    puts "end"
+  end
 end
