@@ -1,4 +1,5 @@
 require 'jbojme/cmavo'
+require 'jbojme/cmevla'
 require 'jbojme/gismu'
 require 'jbojme/lujvo'
 
@@ -15,6 +16,7 @@ module Jbojme
           Cmavo.new(token)
         when /#@c$/
           [:cmevla, token]
+          Cmevla.new(token)
         when /^#@c(?:#@c#@v#@c|#@v#@c#@c)#@v$/
           [:gismu, token]
           Gismu.new(token)
