@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift(File.dirname(__FILE__) + "/../lib")
+
+require 'jbojme/parse_tree'
+require 'pp'
+
+pp Jbojme::ParseTree.new(ARGV.join(" "))
